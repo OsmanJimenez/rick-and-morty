@@ -1,0 +1,29 @@
+.container {
+  .img-logo {
+    padding: 0px 0px 0px 20px;
+  }
+
+  .text-result {
+    margin: 18px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 24px;
+  }
+
+
+  display: flex;
+
+  .card {
+    background: linear-gradient(118.54deg, #40BEA0 29.4%, #4052EE 144.22%);
+
+    img {
+      width: 100%;
+    }
+
+    .description {
+      margin: -18px 0px 18px 32px;
+    }
+  }
+
+}

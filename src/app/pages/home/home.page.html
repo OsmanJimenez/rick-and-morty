@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="sidebar">
+    <ion-list>
+      <ion-list id="inbox-list">
+        <img src="assets/img/logo.png" alt="logo" class="img-logo">
+      </ion-list>
+
+      <ion-list id="inbox-list">
+        <ion-item>
+          <ion-label position="floating">Search</ion-label>
+          <ion-input placeholder="Enter text" (ionChange)="filterCharacters($event)"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list id="inbox-list">
+        <ion-list-header>Especie</ion-list-header>
+        <div class=""></div>
+
+        <ion-radio-group [(ngModel)]="selectedEspecie" (ionChange)="filtroPorEspecie()">
+          <ion-item *ngFor="let especie of especies">
+            <ion-label>{{ especie }}</ion-label>
+            <ion-radio slot="start" [value]="especie"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+
+
+
+      </ion-list>
+
+      <ion-list id="inbox-list">
+        <ion-list-header>Status</ion-list-header>
+        <ion-item *ngFor="let location of status">
+          <ion-checkbox slot="start" [(ngModel)]="selectedStatus" (ionChange)="changeStatus()"></ion-checkbox>
+          <ion-label>{{ location }}</ion-label>
+        </ion-item>
+      </ion-list>
+
+    </ion-list>
+  </div>
+  <div class="content">
+    <p class="text-result" *ngIf="flagCount"> {{ count }} Results</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" *ngFor="let character of characters">
+          <ion-card class="card">
+            <img [src]="character.image" alt="">
+            <ion-card class="description">
+              <ion-card-header>
+                <ion-card-title>{{ character.name }}</ion-card-title>
+                <ion-card-subtitle>{{ character.species}}</ion-card-subtitle>
+              </ion-card-header>
+
+              <ion-card-content>
+                Universo:
+                <br>
+                ▶ {{ character.location.name }}
+              </ion-card-content>
+            </ion-card>
+
+
+
+          </ion-card></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
